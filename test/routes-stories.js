@@ -1,5 +1,8 @@
 
 
+
+require("../controllers/storycontroller.js");
+
 var http = require('request');
 
 
@@ -97,13 +100,17 @@ describe("routes-stories", function() {
 			}, 
 
 			function(err, res, body) {
-				console.log('i am here');
+				
+
 				if ( err ) {
-					console.log('err');
+					console.log(err);
 					done(err);
 				}
 				else {
+					
 					res.statusCode.should.be.equal(201);
+
+
 					done();
 				}
 

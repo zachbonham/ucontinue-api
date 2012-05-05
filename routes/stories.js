@@ -1,19 +1,47 @@
 require('../controllers/storycontroller');
 
-exports.stories = function(req, res) {
 
-	console.log('get');
+
+exports.create = function(req, res) {
+	
 	var controller = new StoryController();
-	res.writeHead(200, { 'content-type': 'application/json'});
-	res.write(JSON.stringify(controller.get()));
-	res.end();
+	var story = controller.post(req.body.title, req.body.author);
+
+	res.status(201);
+	res.send(story);
+
 };
 
-exports.bob = function(req, res) {
 
-	console.log('bob');
+exports.list = function(req, res) {
+
 	var controller = new StoryController();
-	res.writeHead(200, { 'content-type': 'application/json'});
-	res.write(JSON.stringify(controller.get()));
-	res.end();
+	var stories = controller.get();
+	
+	res.send(stories);
+
+};
+
+exports.load = function(req, res) {
+
+	
+	var controller = new StoryController();
+
+	var id = req.params.id;
+	var story = controller.getById(id);
+
+	
+
+	if ( story ) {
+
+		res.send(story);
+	
+	}
+	else {
+
+		res.status(404);		
+		
+	}
+
+
 };

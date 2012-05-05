@@ -3,9 +3,13 @@
  * Module dependencies.
  */
 
-var express = require('express')
+var express = require('express') 
+  , http = require('http')
+  , fs = require('fs')
   , routes = require('./routes')
-  , http = require('http');
+  , stories = require('./routes/stories.js');
+
+
 
 var app = express();
 
@@ -24,8 +28,29 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
+
+
 app.get('/', routes.index);
-app.get('/stories', routes.stories);
+app.get('/stories', stories.list);
+app.get('/stories/:id', stories.load);
+
+app.post('/stories', stories.create);
+
+
+
+/*
+module.exports = function(app){
+    fs.readdirSync(__dirname).forEach(function(file) {
+        
+        var name = file.substr(0, file.indexOf('.'));
+        require('./routes' + name)(app);
+    });
+}
+*/
+
+
+
+
 
 http.createServer(app).listen(3000);
 
