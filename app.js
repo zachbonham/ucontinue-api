@@ -35,6 +35,7 @@ app.get('/stories', stories.list);
 app.get('/stories/:id', stories.load);
 
 app.post('/stories', stories.create);
+app.post('/stories/:id/continuations', stories.append);
 
 
 

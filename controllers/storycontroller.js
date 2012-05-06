@@ -43,4 +43,9 @@ StoryController = function() {
 
 		return storyRepository.update(story);
 	}
+
+	self.appendStory = function(id, text, author) {
+
+		return storyRepository.append(id, text, author);
+	}
 };

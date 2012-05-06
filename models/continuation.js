@@ -1,11 +1,11 @@
 
-Continuation = function(id, storyId, title, author) {
+Continuation = function(id, storyId, text, author) {
 
 	var self = this;
 
 	self.id = id;
 	self.storyId = storyId;
-	self.title = title;
+	self.text = text;
 	self.author = author;
 
 	self.created = new Date();

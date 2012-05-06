@@ -1,2 +1,0 @@
-
-require("../controllers/storycontroller.js");

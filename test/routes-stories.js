@@ -118,4 +118,32 @@ describe("routes-stories", function() {
 
 		});
 
+	it("POST /stories/:id/continuations", function(done) {
+
+		http(
+			{
+				method:'POST',
+				url:'http://localhost:3000/stories/3/continuations',
+				json:true,
+				body : JSON.stringify({text:'continuing your story', author:'owilde'})
+			}, 
+
+
+		function(err, res, body) {
+
+			if ( err ) {
+				console.log(err);
+				done(err);
+			}
+			else
+			{
+				res.statusCode.should.be.equal(201);
+				body.should.be.ok;
+				console.log(body);
+				done();
+			}
+
+		});
 	});
+
+});

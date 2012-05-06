@@ -1,6 +1,7 @@
 
 
-require("../models/story");		
+require("../models/story");	
+require("../models/continuation");	
 
 
 /*
@@ -81,6 +82,25 @@ StoryRepository = function() {
 
 		return story;
 
+	}
+
+	self.append = function(id, text, author) {
+
+		var story = self.find(id);
+
+		if ( story ) {
+
+			
+			var continuationId = new Date().toISOString();
+
+			var continuation = new Continuation(continuationId, text, author);
+
+			story.continuations.push(continuation);
+
+			story = self.update(story);
+		}
+
+		return story;
 	}
 
 
