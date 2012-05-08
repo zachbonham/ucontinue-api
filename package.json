@@ -7,13 +7,11 @@
   },
   "engines": {
     "node": "0.6.x",
-    "npm":  "1.0.x"
+    "npm": "1.0.x"
   },
-
   "dependencies": {
-    "express": "*",
+    "express": "3.0.0alpha1",
     "jade": ">= 0.0.1"
-    
   },
   "devDependencies": {
     "request": "~2.9.202",
