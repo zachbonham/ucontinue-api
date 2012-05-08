@@ -5,9 +5,9 @@
   "scripts": {
     "start": "node app"
   },
-  
+
   "dependencies": {
-    "express": "2.5.8",
+    "express": "*",
     "jade": ">= 0.0.1"
     
   },
