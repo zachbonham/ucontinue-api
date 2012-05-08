@@ -5,10 +5,7 @@
   "scripts": {
     "start": "node app"
   },
-  "engines" : {
-    "node": "v0.6x",
-    "npm" : "1.1.x"
-  },
+  
   "dependencies": {
     "express": "2.5.8",
     "jade": ">= 0.0.1"
